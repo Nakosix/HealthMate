@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const GEMINI_API_KEY = "process.env.GEMINI_API_KEY";
+const GEMINI_API_KEY = (process.env.GEMINI_API_KEY);
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 app.post("/api/gemini", async (req, res) => {
@@ -50,4 +50,5 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Сервер работает: http://localhost:${PORT}`);
 });
+
 
